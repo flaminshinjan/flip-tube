@@ -1,34 +1,125 @@
 /* styles.css */
 
+/* Global Styles */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #ffffff; /* White background */
-  }
-  
-  .popup {
-    padding: 10px;
-    width: 200px;
-  }
-  
-  h1 {
-    color: #ff9900; /* Light orange color */
-    text-align: center;
-    margin-bottom: 15px;
-  }
-  
-  button {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 8px;
-    background-color: #ffcc80; /* Light orange background */
-    border: none;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1e1e1e;
     color: #ffffff;
-    font-size: 14px;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
   }
   
-  button:hover {
-    background-color: #ffa64d; /* Darker orange on hover */
+  /* Popup Container */
+  .popup {
+    background-color: #252525;
+    border-radius: 15px;
+    width: 320px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  
+  /* Header Section */
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header .logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .header .title h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .header .title p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #a0a0a0;
+    margin: 0;
+  }
+  
+  /* Illustration Section */
+  .illustration {
+    margin: 50px 0;
+  }
+  
+  .illustration img {
+    width: 100%;
+    max-width: 120px;
+    margin: 0 auto;
+  }
+  
+  /* Welcome Text Section */
+  .welcome-text h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  
+  .welcome-text p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #a0a0a0;
+    line-height: 1.4;
+    margin: 0;
+  }
+  
+  /* Action Buttons */
+  .actions {
+    margin: 20px 0;
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .button-row button {
+    width: 48%;
+    padding: 10px;
+    background-color: #7c4dff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-row button:hover {
+    background-color: #651fff;
+  }
+  
+  .button-row button:active {
+    background-color: #6200ea;
+  }
+  
+  /* Footer Section */
+  .footer p {
+    font-size: 12px;
+    color: #a0a0a0;
+    margin: 0;
+  }
+  
+  .footer a {
+    color: #7c4dff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
   }
   

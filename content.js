@@ -12,6 +12,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     playNextInOrder();
   } else if (request.action === 'playReverseInOrder') {
     playReverseInOrder();
+  } else if (request.action === 'nextVideo') {
+    playNextVideo();
+  } else if (request.action === 'prevVideo') {
+    playPrevVideo();
   }
 });
 
@@ -61,6 +65,53 @@ function playReverseInOrder() {
   });
 }
 
+function playNextVideo() {
+  waitForPlaylist(() => {
+    const currentVideoId = getCurrentVideoId();
+    const videoElements = getVideoElements();
+    if (videoElements.length === 0 || !currentVideoId) return;
+
+    let foundCurrent = false;
+    for (let i = 0; i < videoElements.length; i++) {
+      const videoId = getVideoIdFromElement(videoElements[i]);
+      if (foundCurrent) {
+        // Play the next video
+        videoElements[i].querySelector('a#thumbnail').click();
+        return;
+      }
+      if (videoId === currentVideoId) {
+        foundCurrent = true;
+      }
+    }
+    alert('This is the last video in the playlist.');
+  });
+}
+
+function playPrevVideo() {
+  waitForPlaylist(() => {
+    const currentVideoId = getCurrentVideoId();
+    const videoElements = getVideoElements();
+    if (videoElements.length === 0 || !currentVideoId) return;
+
+    let previousVideoElement = null;
+    for (let i = 0; i < videoElements.length; i++) {
+      const videoId = getVideoIdFromElement(videoElements[i]);
+      if (videoId === currentVideoId) {
+        if (previousVideoElement) {
+          // Play the previous video
+          previousVideoElement.querySelector('a#thumbnail').click();
+          return;
+        } else {
+          alert('This is the first video in the playlist.');
+          return;
+        }
+      }
+      previousVideoElement = videoElements[i];
+    }
+    alert('Current video not found in the playlist.');
+  });
+}
+
 // Helper functions
 function waitForPlaylist(callback) {
   const checkExist = setInterval(() => {
@@ -84,4 +135,15 @@ function getVideoElements() {
   }
 
   return videoElements;
+}
+
+function getCurrentVideoId() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get('v');
+}
+
+function getVideoIdFromElement(element) {
+  const url = element.querySelector('a#thumbnail').href;
+  const urlParams = new URLSearchParams(new URL(url).search);
+  return urlParams.get('v');
 }

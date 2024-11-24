@@ -2,17 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>FlipTube Options</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlipTube</title>
+  <!-- Import Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="popup">
-    <h1>FlipTube</h1>
-    <button id="play-first">Play from the First</button>
-    <button id="play-last">Play from the Last</button>
-    <button id="play-next">Play Next in Order</button>
-    <button id="play-reverse">Play Reverse in Order</button>
+    <!-- Logo and Title -->
+    <div class="header">
+      <img src="icons/icon128.png" alt="FlipTube Logo" class="logo">
+      <div class="title">
+        <h2>FlipTube</h2>
+        <p>Enhanced Playlist Controls</p>
+      </div>
+    </div>
+
+    <!-- Illustration -->
+    <div class="illustration">
+      <img src="illustration-placeholder.png" alt="Illustration">
+    </div>
+
+    <!-- Welcome Text -->
+    <div class="welcome-text">
+      <h3>Welcome to FlipTube 🎉</h3>
+      <p>Control your YouTube playlists like a pro! Get started by selecting an option below:</p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions">
+      <div class="button-row">
+        <button id="prev-video">⏮ Prev</button>
+        <button id="next-video">⏭ Next</button>
+      </div>
+      <div class="button-row">
+        <button id="play-first">🔢 First</button>
+        <button id="play-last">🔢 Last</button>
+      </div>
+      <div class="button-row">
+        <button id="play-next">▶️ In Order</button>
+        <button id="play-reverse">🔄 Reverse</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Developed by sufi_shinzu's brewery ☕️ ❤️</p>
+      </div>
+    <div class="footer">
+      <p>Need help? <a href="#" target="_blank">Click here</a></p>
+    </div>
   </div>
+
   <script src="popup.js"></script>
 </body>
 </html>
